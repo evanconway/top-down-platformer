@@ -1,5 +1,5 @@
 jump_offset = 0;
-jump_offset_max = 8;
+jump_offset_max = 15;
 
 /**
  * @param {Id.Instance} _player_instance
@@ -53,7 +53,7 @@ function StatePlayerJump(_player_instance, _move, _move_function): State() const
 	
 	update = function() {
 		move_function(move, player);
-		jump_time += pi/60;
+		jump_time += pi/50;
 		player.jump_offset = sin(jump_time) * player.jump_offset_max;
 	};
 }
@@ -99,7 +99,7 @@ draw = function() {
 	if (jump_offset != 0) {
 		draw_set_alpha(0.7);
 		draw_set_color(c_black);
-		draw_circle(x + 5, y + 5, 5, false);
+		draw_circle(x + 5, y + 5, clamp(jump_offset * 0.5, 1, 7), false);
 	}
 	draw_set_alpha(1);
 	draw_sprite(spr_player, 0, x, y - jump_offset);

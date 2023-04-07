@@ -3,7 +3,7 @@ view_camera[0] = true;
 
 width = 320;
 height = 180;
-var _window_multiplier = 6;
+var _window_multiplier = 4;
 
 camera_set_view_size(view_camera[0], width, height);
 window_set_size(width * _window_multiplier, height * _window_multiplier);
